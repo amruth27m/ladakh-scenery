@@ -1,0 +1,131 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% static 'homePage/css/index.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'homePage/css/bulma.css' %}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.1.0/js/all.js"></script>
+
+    <script src="{% static 'homePage/js/snowfall.js' %}"></script>
+    <script src="{% static 'homePage/js/index.js' %}"></script>
+
+
+</head>
+
+<!--TODO: Add blogs, contacts, testimony, packages,contact-us-->
+<body>
+<!--Snowfall canvas-->
+<canvas id="canvas" class="snowfall-canvas">
+</canvas>
+
+<ul id="contact-list">
+    <li id="contact-email">
+        <a href="mailto:ladakhscenery@gmail.com">
+            <i class="far fa-envelope fa-2x"></i>
+            ladakhscenery@gmail.com
+        </a>
+    </li>
+    <li id="contact-phone">
+        <a href="phone:">
+        <i class="fas fa-phone fa-2x"></i>
+        9895707532
+        </a>
+    </li>
+    <li id="contact-instagram">
+        <a href="insta">
+        <i class="fab fa-instagram fa-2x"></i>
+        instagram.com/ladakhscenery
+        </a>
+    </li>
+    <li id="contact-facebook">
+        <a href="https://www.facebook.com/ladakh.scenery.5">
+        <i class="fab fa-facebook fa-2x"></i>
+        </a>
+    </li>
+</ul>
+<div class="has-bg-image">
+<section class="hero is-info is-fullheight  has-bg-image">
+  <div class="hero-body">
+    <div class="container has-text-centered justify-center">
+
+        <div class="icon-holder">
+        <p class="title is-1">
+        <img src="{% static 'homePage/img/logo.png' s%}">
+        </p>
+        </div>
+
+        <div class="sub-icon" id="about-us">
+
+        </div>
+
+        <div class="sub-icon" id="packages">
+
+        </div>
+
+        <div class="sub-icon" id="testimony">
+
+        </div>
+
+        <div class="sub-icon" id="contact-us">
+
+        </div>
+
+      <p class="subtitle is-2 subs">
+        Experience the alphine vista
+      </p>
+    </div>
+  </div>
+
+</section>
+</div>
+<section class="hero is-fullheight package-container">
+    <div id="packages-heading">
+        <p> Tour Packages </p>
+    </div>
+    <div id="packages">
+        {% if packageList %}
+            {% for package in packageList %}
+                <div class="package-card">
+                    <div class="package-image-container">
+                        <img class="package-image" src=" {{ package.packageCoverImage }}  ">
+                    </div>
+                    <div class="package-name">
+                        {{ package.packageName }}
+                    </div>
+                    <div class="package-description">
+                        {{ package.packageDescription|truncatechars:130 }}
+                    </div>
+                    <div class="package-more-button-container">
+                        <button class="package-more-button">Know More</button>
+                    </div>
+                </div>
+            {% endfor %}
+
+        {% else %}
+            <p> No packages available. Please check later</p>
+        {% endif%}
+    </div>
+</section>
+<section>
+<footer class="footer">
+    <div class="container">
+        <div class="columns has-text-centered">
+            <div class="column">
+                f
+            </div>
+            <div class="column">
+                second
+            </div>
+            <div class="column">
+                third
+            </div>
+  </div>
+    </div>
+</footer>
+</section>
+
+</body>
+</html>
